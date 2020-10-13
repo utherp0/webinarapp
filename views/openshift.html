@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Test Page for nodejs-ex app</title>
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+  <link rel="stylesheet" href="styles/ui.css"/>
+
+  <script>
+    function dataFill()
+    {
+      $.ajax({url: "envs", success: function( result ) {
+        $("#requestStatus").html(result);
+      }});
+    }
+
+    function jsonCall()
+    {
+      $.ajax({url:"nasa", success: function(result) {
+        $("#jsonoutput").html(result);
+      }});
+    }
+
+    function reveal( targetName )
+    {
+      target = document.getElementById(targetName);
+
+      target.style.display = ( target.style.display == "block" ? "none" : "block" );
+
+      buttonLabel = document.getElementById("hider").value;
+      document.getElementById("hider").value = ( document.getElementById("hider").value == "Why do I love OpenShift for Development?" ? "Here's why......." : "Here's why.......");
+    }
+
+  </script>
+
+</head>
+
+<body>
+<br/><br/>
+<div width="100%" align="center">
+  <img src="/images/openshift.png" width="400px"/>  
+</div>
+<br/><br/>
+<div width="100%" align="center">
+  <input type="button" id="hider" value="Why do I love OpenShift for Development?" class="webinarclicker" onClick="reveal('requestStatus');"/>
+</div>
+<br/><br/>
+<div class="output" align="center" id="requestStatus" style="display:none">
+<br/><br/>
+The <font color=red>speed</font> of being able to create an environment<br/><br/>
+The <font color=red>simplicity</font> of the tools that let ME just Develop<br/><br/>
+The <font color=red>consistency</font> of environment<br/><br/>
+
+</div><br/>
+
+</body>
+</html>

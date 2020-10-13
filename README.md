@@ -1,2 +1,1 @@
-# webinarapp
-Example node app for webinar fun
+An example node.js app for fast compilation as part of an OCP demo
